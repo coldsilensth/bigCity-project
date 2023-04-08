@@ -47,11 +47,17 @@ iii. Параметр open: 0 - закрыт, 1 - открыт. Данный с�
 1. Создать базу данных в PostgreSQL и в проекте изменить application.properties
 
 spring.jpa.hibernate.ddl-auto=create
+
 spring.datasource.url=jdbc:postgresql://localhost:5432/big_cities(моя база данных, вы пишите свое название)
+
 spring.datasource.username=postgres (также корректируете под себя username and password)
+
 spring.datasource.password=postgres
+
 spring.main.allow-circular-references=true
+
 spring.jpa.properties.hibernate.format_sql=true
+
 server.port=1010
 
 2. После запуска убедитесь что создались 3 таблицы: city, shop, street. если все верно, то все хорошо :D можете открыть postman и начать проверять методы.
