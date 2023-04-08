@@ -18,17 +18,9 @@ import java.util.Optional;
 @RequestMapping("/cities")
 public class CityController {
     private final CityService cityService;
-    private final CityRepository cityRepository;
-    private final StreetRepository streetRepository;
-    private final StreetService streetService;
 
-
-    public CityController(CityService cityService,
-                          CityRepository cityRepository, StreetRepository streetRepository, StreetService streetService) {
+    public CityController(CityService cityService){
         this.cityService = cityService;
-        this.cityRepository = cityRepository;
-        this.streetRepository = streetRepository;
-        this.streetService = streetService;
     }
 
     //метод создания нового города
@@ -75,6 +67,4 @@ public class CityController {
     public void deleteCity(@PathVariable Long id) {
         cityService.deleteCity(id);
     }
-
-
 }

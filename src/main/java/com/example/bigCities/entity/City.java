@@ -1,5 +1,6 @@
 package com.example.bigCities.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,6 @@ public class City {
     @Column
     private String name;
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Street> streets;
-
 }

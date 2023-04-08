@@ -27,7 +27,6 @@ public class Shop {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime closingTime;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-
     private LocalTime openingTime;
     private boolean isOpen;
 

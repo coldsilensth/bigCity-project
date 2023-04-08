@@ -9,5 +9,4 @@ public class CityDTO {
     private Long id;
     private String name;
     private List<StreetDTO> streets = new ArrayList<>();
-
 }

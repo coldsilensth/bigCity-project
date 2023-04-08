@@ -43,5 +43,4 @@ public class StreetController {
     public void deleteStreet(@PathVariable Long id) {
         streetService.deleteStreet(id);
     }
-
 }

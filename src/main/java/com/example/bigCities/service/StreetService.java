@@ -17,7 +17,6 @@ public class StreetService {
     private final StreetRepository streetRepository;
     private final CityRepository cityRepository;
 
-
     public StreetService(StreetRepository streetRepository, CityRepository cityRepository) {
         this.streetRepository = streetRepository;
         this.cityRepository = cityRepository;
@@ -52,6 +51,4 @@ public class StreetService {
                 .orElseThrow();
         streetRepository.delete(street);
     }
-
-
 }

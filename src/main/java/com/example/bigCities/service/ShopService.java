@@ -25,8 +25,6 @@ public class ShopService {
     private final ShopRepository shopRepository;
     private final CityRepository cityRepository;
     private final StreetRepository streetRepository;
-    private final int SIZE = 6;
-
 
     public ShopService(ShopRepository shopRepository, CityRepository cityRepository, StreetRepository streetRepository) {
         this.shopRepository = shopRepository;
@@ -39,10 +37,9 @@ public class ShopService {
     }
     public Shop updateShop(Long id, ShopDTO shopDTO) {
         Shop shop = shopRepository.findById(id)
-                .orElseThrow();
+                .orElseThrow(() -> new EntityNotFoundException("Shop not found"));
         City city = cityRepository.findById(shopDTO.getCityId())
                 .orElseThrow(() -> new EntityNotFoundException("City not found"));
-
         Street street = streetRepository.findById(shopDTO.getStreetId())
                 .orElseThrow(() -> new EntityNotFoundException("Street not found"));
 
@@ -51,7 +48,9 @@ public class ShopService {
         shop.setNumberHome(shopDTO.getNumberHome());
         shop.setOpeningTime(shopDTO.getOpeningTime());
         shop.setClosingTime(shopDTO.getClosingTime());
-        return shopRepository.save(shop);
+        shop.setOpen(shopDTO.isOpen());
+        shopRepository.save(shop);
+        return shop;
     }
 
     public Shop createNewShop(ShopDTO shopDTO) {
@@ -80,8 +79,8 @@ public class ShopService {
     }
 
     public ResponseEntity<List<ShopResultDTO>> getShopList(String sortBy, String sortOrder, String city, String street) {
-        int page = 0;
-        int size = 6;
+        final int page = 0;
+        final int size = 6;
         Sort.Direction direction = Sort.Direction.ASC;
         if (sortOrder != null && sortOrder.equalsIgnoreCase("desc")) {
             direction = Sort.Direction.DESC;
@@ -121,5 +120,4 @@ public class ShopService {
                 .orElseThrow();
         shopRepository.delete(shop);
     }
-
 }

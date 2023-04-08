@@ -12,5 +12,4 @@ public class StreetDTO {
         this.name = name;
         this.cityId = cityId;
     }
-
 }

@@ -13,7 +13,4 @@ public class ShopDTO {
     private LocalTime closingTime;
     private LocalTime openingTime;
     private boolean isOpen;
-
-
-
 }

@@ -8,5 +8,4 @@ public class ShopResultDTO {
     private String street;
     private int numberHome;
     private boolean isOpen;
-
 }

@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/shop")
 public class ShopController {
-
     private final ShopService shopService;
 
     public ShopController(ShopService shopService) {
@@ -25,11 +24,10 @@ public class ShopController {
     public ResponseEntity<String> addShop(@RequestBody ShopDTO shopDTO) {
         Shop newShop = shopService.createNewShop(shopDTO);
         return ResponseEntity.ok("Ваш "+ newShop.getId() + " построенный магазин");
-
     }
 
     //метод поиска магазина по id
-    @GetMapping("/{getShopById/id}")
+    @GetMapping("/getShopById/{id}")
     public ResponseEntity<Shop> getShopById(@PathVariable Long id) {
         Shop shop = shopService.getShopById(id);
         return ResponseEntity.ok(shop);
@@ -48,7 +46,7 @@ public class ShopController {
 
     //метод обновления магазина по id
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateShop(@PathVariable Long id,@RequestBody ShopDTO shopDTO) {
+    public ResponseEntity<Shop> updateShop(@PathVariable Long id, @RequestBody ShopDTO shopDTO) {
         Shop updatedShop = shopService.updateShop(id, shopDTO);
         return ResponseEntity.ok(updatedShop);
     }
@@ -58,5 +56,4 @@ public class ShopController {
     public void deleteShop(@PathVariable Long id) {
         shopService.deleteShop(id);
     }
-
 }
