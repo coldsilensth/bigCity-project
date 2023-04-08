@@ -57,7 +57,9 @@ server.port=1010
 2. После запуска убедитесь что создались 3 таблицы: city, shop, street. если все верно, то все хорошо :D можете открыть postman и начать проверять методы.
 3. При проверке методов в postman можете воспользоваться Via API(мой ментор так делал, но я не знаю правильно ли это)
 for city: https://api.postman.com/collections/25575773-87749aec-5580-4d78-b50a-fccf8bd8f9bb?access_key=PMAT-01GXGMEYZZQDFRNNED94C8CEZR
+
 for shop: https://api.postman.com/collections/25575773-bdab1569-2275-459a-8584-6ea78bf3d241?access_key=PMAT-01GXGMJCH8RWDNMXY1ZPQQE1X1
+
 for street: https://api.postman.com/collections/25575773-140c337a-6c4a-4575-9181-a8574574d16e?access_key=PMAT-01GXGMK1DXZ6TCK6P0EBDF4Z1D
 
 Если ключи не сработали, то вот подробные описания для методов и примерные параметры для postman:
